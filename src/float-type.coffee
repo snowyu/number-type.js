@@ -6,7 +6,7 @@ aliases         = AbstractNumber.aliases
 
 module.exports = class FloatType
   register FloatType
-  aliases 'float', 'real', 'Real', 'double', 'Double'
+  aliases FloatType, 'float', 'real', 'Real', 'double', 'Double'
 
   constructor: ->return super
 

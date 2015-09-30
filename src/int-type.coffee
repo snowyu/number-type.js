@@ -7,7 +7,7 @@ isInteger       = Number.isInteger
 
 module.exports = class IntType
   register IntType
-  aliases 'int', 'Integer', 'integer'
+  aliases IntType, 'int', 'Integer', 'integer'
 
   constructor: ->return super
 

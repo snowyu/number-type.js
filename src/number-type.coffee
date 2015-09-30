@@ -6,7 +6,7 @@ aliases         = AbstractNumber.aliases
 
 module.exports = class NumberType
   register NumberType
-  aliases 'number'
+  aliases NumberType, 'number'
 
   constructor: ->return super
 
