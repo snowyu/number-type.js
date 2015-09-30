@@ -17,15 +17,32 @@
 [codeclimate-test-svg]: https://codeclimate.com/github/snowyu/number-type.js/badges/coverage.svg
 [codeclimate-test]: https://codeclimate.com/github/snowyu/number-type.js/coverage
 
+
+The number type.
+
 ## Usage
 
 ```js
 var NumberType  = require('number-type')
-var Number  = NumberType('number')
-var Int     = NumberType('int')
+var Number      = NumberType('number')
+var Int         = NumberType('int')
+var PositiveInt = Int.createType min:0
 
-
-
+var n = PositiveInt.create(123)
+console.log(1 + n)
+//=124
+console.log(n.isValid())
+//=true
+console.log(n.toJson()))
+//='123'
+console.log(n.toJson({withType:true})))
+//='{"value":123,"name":"Int","min":0}'
+console.log(PositiveInt.isValid(-1))
+//=false
+n.assign(-1)
+//=TypeError: "-1" is an invalid Int
+console.log(n.assign(2)+0)
+//=2
 ```
 
 ## API
