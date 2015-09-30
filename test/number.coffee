@@ -8,6 +8,7 @@ chai.use(sinonChai)
 
 setImmediate    = setImmediate || process.nextTick
 isFunction      = require 'util-ex/lib/is/type/function'
+valueTest       = require './value'
 
 module.exports = (NumberType, Tests)->
   number = NumberType()
@@ -65,4 +66,11 @@ module.exports = (NumberType, Tests)->
         expect(number.validate('123')).to.be.true
         expect(number.validate.bind(number,"dsd")).to.be.throw 'an invalid ' + number.name
 
+    describe '.cloneType', ->
+      it 'should clone type', ->
+        t = number.createType(min:1, max:3)
+        result = t.cloneType()
+        expect(t.isSame result).to.be.true
+
     Tests(NumberType) if isFunction Tests
+    valueTest(NumberType)
