@@ -30,7 +30,7 @@
     "klass"
   ],
   "dependencies": {
-    "abstract-type": "^0.2.0",
+    "abstract-type": "^0.2.1",
     "inherits-ex": "^1.1.4",
     "util-ex": "^0.3.14"
   },
