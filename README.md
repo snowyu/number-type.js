@@ -47,6 +47,7 @@ console.log(n.assign(2)+0)
 
 ## API
 
+See [abstract-type](https://github.com/snowyu/abstract-type.js)
 
 ## TODO
 
