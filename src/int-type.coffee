@@ -1,9 +1,9 @@
 isInt           = require 'util-ex/lib/is/string/int'
 isFloat         = require 'util-ex/lib/is/string/float'
+isInteger       = require 'util-ex/lib/is/type/integer'
 AbstractNumber  = require './'
 register        = AbstractNumber.register
 aliases         = AbstractNumber.aliases
-isInteger       = Number.isInteger
 
 module.exports = class IntType
   register IntType
