@@ -11,10 +11,10 @@ module.exports = class IntType
 
   constructor: ->return super
 
-  stringToValue: (aString)->
+  toValue: (aString)->
     if isInt aString
       aString = parseInt(aString)
-    else
+    else unless isInteger aString
       aString = undefined
     aString
   _isValid: (value)-> isInteger value

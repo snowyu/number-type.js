@@ -26,21 +26,21 @@ module.exports = class AbstractNumberType
         value = dest.validateMax(value) if dest instanceof AbstractNumberType
         value
 
-  #@stringToValue:-> #must be overrided this method!
+  #@toValue:-> #must be overrided this method!
 
   validateMin: (value)->
     throw new TypeError 'the min should be less than max:' + value if value > @_max
-    value = @stringToValue(value) if isString value
+    value = @toValue(value) if isString value
     throw new TypeError 'the min should be a '+ @name unless isNumber value
     value
   validateMax: (value)->
     throw new TypeError 'the max should be greater than min:' + value if value < @_min
-    value = @stringToValue(value) if isString value
+    value = @toValue(value) if isString value
     throw new TypeError 'the max should be a ' + @name unless isNumber value
     value
   _isValid: (value)-> isNumber value
   _validate: (aValue, aOptions)->
-    aValue = @stringToValue(aValue) if isString aValue
+    aValue = @toValue(aValue) if isString aValue
     result = @_isValid aValue
     if result
       if aOptions
