@@ -3,6 +3,10 @@ const {
 } = require('./package.json')
 // require("@babel/register")({extensions: ['.js', '.ts']})
 const presets = [
+  // If you are not using typescript remove the following line.
+  // '@babel/preset-typescript',
+  // If you are not using flow remove the following line.
+  // '@babel/preset-flow',
   [
     '@babel/env',
     {
@@ -16,13 +20,10 @@ const presets = [
       },
     },
   ],
-  // If you are not using typescript remove the following line.
-  '@babel/preset-typescript',
-  // If you are not using flow remove the following line.
-  // '@babel/preset-flow',
 ]
 
 const plugins = [
+  ['@babel/plugin-transform-typescript', { allowDeclareFields: true }],
   '@babel/plugin-proposal-class-properties',
   '@babel/plugin-proposal-object-rest-spread',
   ['@babel/plugin-proposal-decorators', { legacy: true }],

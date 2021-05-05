@@ -12,8 +12,8 @@ export class AbstractNumberType extends Type {
     return aValue
   }
 
-  // min!: number
-  // max!: number
+  declare min: number | undefined
+  declare max: number | undefined
 
   // helper function to check the min property
   _validateMin(this: any, value) {
