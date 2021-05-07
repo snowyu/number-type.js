@@ -17,18 +17,21 @@
 [codeclimate-test-svg]: https://codeclimate.com/github/snowyu/number-type.js/badges/coverage.svg
 [codeclimate-test]: https://codeclimate.com/github/snowyu/number-type.js/coverage
 
-
 The number type.
 
 ## Usage
 
 ```js
-var NumberType  = require('number-type')
-var Number      = NumberType('number')
-var Int         = NumberType('int')
-var PositiveInt = Int.createType min:0
+import { NumberType, Type } from 'number-type'
 
-var n = PositiveInt.create(123)
+const Number      = Type.get('number')
+const Int         = Type.get('int')
+
+class PositiveInt extends Int {
+  static min = 0
+}
+
+var n = new PositiveInt(123)
 console.log(1 + n)
 //=124
 console.log(n.isValid())
