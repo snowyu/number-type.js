@@ -38,6 +38,16 @@ export function numberTest(NumberType: typeof AbstractNumberType, Tests?) {
       expect(NumberType.pathArray()).toEqual(expectPath)
     })
 
+    it('should create parameterized type', () => {
+      class Positive extends NumberType {
+        static min = 0
+      }
+      const result = new Positive(1)
+      expect(result).toHaveProperty('min', 0)
+      expect(result.isValid()).toBeTrue()
+      expect(result.validate(-1, false)).toBeFalse()
+    })
+
     describe('toValue', () => {
       it('should convert string to value', () => {
         const result = NumberType.toValue('123')
