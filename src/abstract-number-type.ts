@@ -12,6 +12,8 @@ export class AbstractNumberType extends Type {
     return aValue
   }
 
+  declare static min: number | undefined
+  declare static max: number | undefined
   declare min: number | undefined
   declare max: number | undefined
 
@@ -70,8 +72,6 @@ export class AbstractNumberType extends Type {
   }
 }
 
-register(AbstractNumberType)
-
 defineProperties(AbstractNumberType, {
   min: {
     type: 'Number',
@@ -93,3 +93,5 @@ defineProperties(AbstractNumberType, {
     },
   },
 })
+
+register(AbstractNumberType)
