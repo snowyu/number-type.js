@@ -36,9 +36,9 @@ console.log(1 + n)
 //=124
 console.log(n.isValid())
 //=true
-console.log(n.toJson()))
+console.log(n.toJson())
 //='123'
-console.log(n.toJson({withType:true})))
+console.log(n.toJson({withType:true}))
 //='{"value":123,"name":"Int","min":0}'
 console.log(PositiveInt.isValid(-1))
 //=false
