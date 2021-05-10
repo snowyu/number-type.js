@@ -19,11 +19,11 @@ export class AbstractNumberType extends Type {
 
   // helper function to check the min property
   _validateMin(this: any, value) {
-    if (typeof value === 'string') {
+    if (typeof value !== 'number') {
       const TheType = this['Class'] || this.constructor
       value = TheType.toValue(value)
     }
-    if (!isNumber(value) || isNaN(value))
+    if (!this._isValid(value))
       throw new TypeError('the min should be a ' + this.name)
     if (value > this._max)
       throw new TypeError('the min should be less than max:' + value)
@@ -32,11 +32,11 @@ export class AbstractNumberType extends Type {
 
   // helper function to check the max property
   _validateMax(this: any, value) {
-    if (typeof value === 'string') {
+    if (typeof value !== 'number') {
       const TheType = this['Class'] || this.constructor
       value = TheType.toValue(value)
     }
-    if (!isNumber(value) || isNaN(value))
+    if (!this._isValid(value))
       throw new TypeError('the max should be a ' + this.name)
 
     if (value < this._min)
@@ -49,8 +49,10 @@ export class AbstractNumberType extends Type {
   }
 
   _validate(aValue, aOptions) {
-    const TheType = this['Class'] || this.constructor
-    if (typeof aValue === 'string') aValue = TheType.toValue(aValue)
+    if (typeof aValue !== 'number') {
+      const TheType = this['Class'] || this.constructor
+      aValue = TheType.toValue(aValue)
+    }
     let result = this._isValid(aValue)
     if (result) {
       const vMin = aOptions.min
