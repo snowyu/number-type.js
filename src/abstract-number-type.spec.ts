@@ -76,6 +76,12 @@ export function numberTest(NumberType: typeof AbstractNumberType, Tests?) {
         )
         const v: any = new NumberType({ max: 3 })
         expect(() => (v.min = 4)).toThrow('the min should be less than max')
+
+        const result = number.clone()
+        result.max = 4
+        expect(() => (result.min = 6)).toThrow(
+          'the min should be less than max'
+        )
       })
       it('should limit the range of number value', () => {
         const n: any = new NumberType({ min: '2', max: '6' })

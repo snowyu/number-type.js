@@ -19,8 +19,9 @@ export class AbstractNumberType extends Type {
 
   // helper function to check the min property
   _validateMin(this: any, value) {
+    if (value === undefined) return
     if (typeof value !== 'number') {
-      const TheType = this['Class'] || this.constructor
+      const TheType = this.constructor
       value = TheType.toValue(value)
     }
     if (!this._isValid(value))
@@ -32,8 +33,9 @@ export class AbstractNumberType extends Type {
 
   // helper function to check the max property
   _validateMax(this: any, value) {
+    if (value === undefined) return
     if (typeof value !== 'number') {
-      const TheType = this['Class'] || this.constructor
+      const TheType = this.constructor
       value = TheType.toValue(value)
     }
     if (!this._isValid(value))
@@ -50,7 +52,7 @@ export class AbstractNumberType extends Type {
 
   _validate(aValue, aOptions) {
     if (typeof aValue !== 'number') {
-      const TheType = this['Class'] || this.constructor
+      const TheType = this.constructor as typeof AbstractNumberType
       aValue = TheType.toValue(aValue)
     }
     let result = this._isValid(aValue)
